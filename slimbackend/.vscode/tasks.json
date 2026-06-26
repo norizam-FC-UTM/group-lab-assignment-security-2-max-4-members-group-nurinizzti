@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "test-login-api",
+			"type": "shell",
+			"command": "php",
+			"args": [
+				"-r",
+				"$payload = json_encode(['email'=>'aiman@student.utm.my','password'=>'password123']); $ch = curl_init('http://localhost:8081/api/login'); curl_setopt_array($ch, [CURLOPT_RETURNTRANSFER => true, CURLOPT_POST => true, CURLOPT_HTTPHEADER => ['Content-Type: application/json'], CURLOPT_POSTFIELDS => $payload]); $result = curl_exec($ch); if ($result === false) { echo 'ERROR: ' . curl_error($ch); } else { echo $result; } curl_close($ch);"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		}
+	]
+}
